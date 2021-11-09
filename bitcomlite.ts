@@ -3,27 +3,27 @@ enum bclEvents {
     //% block="pressed"
     Pressed = DAL.MICROBIT_BUTTON_EVT_UP,
     //% block="released"
-    Released = DAL.MICROBIT_BUTTON_EVT_CLICK
+    Released = DAL.MICROBIT_BUTTON_EVT_DOWN
 }
 
 enum bclPins
 {
     //% block="p1"
-    p1 = <number>DAL.MICROBIT_ID_IO_P1,
+    p1 = DigitalPin.P1,
     //% block="p2"
-    p2 = <number>DAL.MICROBIT_ID_IO_P2,
+    p2 = DigitalPin.P2,
     //% block="p8"
-    p8 = <number>DAL.MICROBIT_ID_IO_P8,
+    p8 = DigitalPin.P8,
     //% block="p12"
-    p12 = <number>DAL.MICROBIT_ID_IO_P12,
+    p12 = DigitalPin.P12,
     //% block="p13"
-    p13 = <number>DAL.MICROBIT_ID_IO_P13,
+    p13 = DigitalPin.P13,
     //% block="p14"
-    p14 = <number>DAL.MICROBIT_ID_IO_P14,
+    p14 = DigitalPin.P14,
     //% block="p15"
-    p15 = <number>DAL.MICROBIT_ID_IO_P15,
+    p15 = DigitalPin.P15,
     //% block="p16"
-    p16 = <number>DAL.MICROBIT_ID_IO_P16,
+    p16 = DigitalPin.P16,
 }
 
 
@@ -36,6 +36,12 @@ namespace bclite
     let switchInit = true;
 
 // Switch Handling Blocks
+
+    //% shim=bitcommander::init
+    function init(): void
+    {
+        return;
+    }
 
     function eventInit()
     {
@@ -69,10 +75,10 @@ namespace bclite
       * @param event type of event to handle
       */
     //% weight=100
-    //% blockId=OnButtonEvent block="on 06 button%button|%event"
+    //% blockId=OnButtonEvent block="on 07 button%button|%event"
     export function onButtonEvent(button: bclPins, event: bclEvents, handler: Action)
     {
-        eventInit();
+        init();
         control.onEvent(<number>button, <number>event, handler); // register handler
     }
 
