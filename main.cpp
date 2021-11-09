@@ -1,7 +1,7 @@
 #include "pxt.h"
 
 using namespace pxt;
-namespace bitcommander
+namespace bclite
 {
     bool initialized = false;
 
